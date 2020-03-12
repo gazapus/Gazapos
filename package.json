@@ -1,0 +1,16 @@
+{
+  "name": "memory-bunnies",
+  "version": "1.0.0",
+  "description": "memory game of bunnies",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "memory",
+    "game",
+    "bunnies"
+  ],
+  "author": "cristian villafañe",
+  "license": "ISC"
+}
