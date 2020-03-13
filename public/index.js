@@ -98,14 +98,18 @@ const rabbitImages = [
 ];
 
 function loadImages() {
-     let randomImages = revolveArray(rabbitImages);
+     //Mix the rabbit images array
+     let randomImages = mixArray(rabbitImages);
      let sixImages = randomImages.slice(0,6);
+     //Duplicate the array to make twelve images
      let twelveImages = sixImages.concat(sixImages);
-     twelveImages = revolveArray(twelveImages);
+     //Mix the twelve images array
+     twelveImages = mixArray(twelveImages);
      for (let i = 0; i < 12; i++) {
           let currentId = "img" + i.toString();
           document.getElementById(currentId).src = twelveImages[i];
      }
+     document.getElementById("finalImage").src = "./images/loading.jpg";
 }
 
 window.onload = () => {
@@ -134,7 +138,6 @@ function restart() {
      }
      document.getElementById("finalResult").classList.replace('show', 'very-hidden');
      document.getElementById("finalImage").classList.replace('show', 'very-hidden');
-     document.getElementById("finalImage").src = "";
      document.getElementById("finalText").classList.replace('show', 'very-hidden');
      document.getElementById("restartButton").classList.replace('show', 'very-hidden');
 }
@@ -215,7 +218,7 @@ function randomNumberSerie(end, start = 0) {
 /*
      Devuelve un nuevo array con los elementos del array recibido mezclados al azar
 */
-function revolveArray(array) {
+function mixArray(array) {
      let randomIndexes = randomNumberSerie(array.length);
      let randomArray = [];
      for (let randomIndex of randomIndexes) {

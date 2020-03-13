@@ -119,8 +119,4 @@ h1{
      #finalText{
           font-size: 2.8em;
      }
-     #restartButton:hover{
-          transition: all 0.0s ease 0s;
-     }
-
 }
