@@ -8,7 +8,7 @@ const results = {
      victory: [
           {
                image: './images/razas/angora-aleman.jpg',
-               text: 'Angora Aleman'
+               text: 'Tu Premio: Angora Aleman'
           },
           {
                image: './images/razas/arlequin.jpg',
@@ -23,7 +23,7 @@ const results = {
                text: 'Tu Premio: Belier Holandes'
           },
           {
-               image: './images/razas/blando-de-hotot.jpg',
+               image: './images/razas/blanco-de-hotot.jpg',
                text: 'Tu Premio: Blanco de Hotot'
           },
           {
@@ -32,7 +32,7 @@ const results = {
           },
           {
                image: './images/razas/mini-rex.jpg',
-               text: 'Tu Premio: Mini Rez'
+               text: 'Tu Premio: Mini Rex'
           },
           {
                image: './images/razas/tan.jpg',
@@ -134,26 +134,26 @@ function restart() {
      }
      document.getElementById("finalResult").classList.replace('show', 'very-hidden');
      document.getElementById("finalImage").classList.replace('show', 'very-hidden');
+     document.getElementById("finalImage").src = "";
      document.getElementById("finalText").classList.replace('show', 'very-hidden');
      document.getElementById("restartButton").classList.replace('show', 'very-hidden');
 }
 
 async function runResult(victory) {
      waitTime = true;
-     await new Promise(r => setTimeout(r, 1000)); //sleep one second
+     let property = (victory) ? "victory" : "fail";
      let imageElement = document.getElementById("finalImage");
      let textElement = document.getElementById("finalText");
-     let property = (victory) ? "victory" : "fail";
      let randomNumber = Math.floor(Math.random() * results[property].length);
      let textResult = (victory) ? "¡GANASTE!" : "PERDISTE";
-
-     document.getElementById("finalResult").classList.replace('very-hidden', 'show');
-
-     imageElement.classList.replace('very-hidden', 'show');
      imageElement.src = results[property][randomNumber].image;
-     textElement.classList.replace('very-hidden', 'show');
-
      textElement.innerHTML = textResult + "<br/>" + results[property][randomNumber].text;
+     //Sleep one second
+     await new Promise(r => setTimeout(r, 1000)); 
+     //Show all hidden elements
+     document.getElementById("finalResult").classList.replace('very-hidden', 'show');
+     imageElement.classList.replace('very-hidden', 'show');
+     textElement.classList.replace('very-hidden', 'show');
      document.getElementById("restartButton").classList.replace('very-hidden', 'show');
 }
 
