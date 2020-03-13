@@ -37,15 +37,15 @@ const results = {
      fail: [
           {
                image: './images/cuy.jpg',
-               text: 'perdiste! oh cheñol!'
+               text: 'oh cheñol!'
           },
           {
                image: './images/cuy2.jpg',
-               text: 'perdiste 2! oh cheñol!'
+               text: ' cheñol!'
           },
           {
                image: './images/cuy3.jpg',
-               text: 'perdiste 3! oh cheñol!'
+               text: 'heñol!'
           }
      ]
 }
@@ -78,32 +78,32 @@ function restart(){
      imagesDone = [];
      loadImages();
      document.getElementById("intentos").innerText = attemps;
-     document.getElementById("resultado").innerText = "¡Encontrá los pares de gazapos y llevate una sorpresa!";
      for(let i=0; i<12; i++){
           let image = document.getElementById("img" + i.toString());
           image.classList.replace('no-hidden', 'hidden');
      }
-     document.getElementById("resultado").innerText = "";
      document.getElementById("finalResult").classList.replace('show', 'very-hidden');
      document.getElementById("finalImage").classList.replace('show', 'very-hidden');
      document.getElementById("finalText").classList.replace('show', 'very-hidden');
      document.getElementById("restartButton").classList.replace('show', 'very-hidden');
 }
 
-function runResult(victory){
+async function runResult(victory){
      waitTime = true;
+     await new Promise(r => setTimeout(r, 1000)); //sleep one second
      let imageElement = document.getElementById("finalImage");
      let textElement = document.getElementById("finalText");
      let property = (victory) ? "victory" : "fail";
      let randomNumber = Math.floor(Math.random() * results[property].length);
+     let textResult = (victory) ? "¡GANASTE!" : "PERDISTE";
 
-     document.getElementById("resultado").innerText = (victory) ? "Ganaste" : "Perdiste";
      document.getElementById("finalResult").classList.replace('very-hidden', 'show');     
 
      imageElement.classList.replace('very-hidden', 'show');
      imageElement.src = results[property][randomNumber].image;
      textElement.classList.replace('very-hidden', 'show');
-     textElement.innerText = results[property][randomNumber].text;
+
+     textElement.innerHTML = textResult + "<br/>" + results[property][randomNumber].text;
      document.getElementById("restartButton").classList.replace('very-hidden', 'show');
 }
 

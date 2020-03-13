@@ -5,8 +5,8 @@ body{
      background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
      display: flex;
      flex-direction: column;
-     align-items: center
-;}
+     align-items: center;
+}
 *{
      font-family: 'Sansita', sans-serif;
      color: rgb(255, 254, 246);
@@ -15,6 +15,7 @@ h1{
      font-size: 3em;
      margin: 0 0 1% 0;
      text-align: center;
+     text-shadow: 5px 5px 5px black;
 }
 #descripcion{
      font-size: 1.5em;
@@ -31,11 +32,6 @@ h1{
      font-size: 1.35em;
      color: rgb(188, 252, 85);
 }
-#resultado{
-     font-size: 2em;
-     text-shadow: 5px 5px 10px gray;
-     margin: 0;
-}
 .imagesContainer{
      width: 95%;
      display: grid;
@@ -48,10 +44,10 @@ h1{
      padding: 2%;
 }
 .hidden{
-     opacity: 0%;
+     opacity: 0;
 }
 .no-hidden{
-     opacity: 100%;
+     opacity: 1;
 }
 .image{
      width: 100%;
@@ -84,15 +80,20 @@ h1{
      border-color: rgb(117, 7, 7);
 }
 #finalText{
+     min-width: 40%;
      font-size: 3em;
-     background-color: rgba(0, 0, 0, 0.637);
+     background-color: rgba(0, 0, 0, 0.801);
+     border-radius: 20px;
      text-shadow: 5px 5px 5px black;
      margin: 1%;
+     padding: 1%;
+     text-align: center;
+     color: burlywood;
 }
 #restartButton{
      padding: 1%;
      border-radius: 5px;
-     background-color: rgb(2, 2, 173);
+     background-color: rgb(10, 10, 133);
      font-size: 1.5em;
      border-style: inset;
      border-color: brown;
@@ -101,8 +102,18 @@ h1{
 }
 #restartButton:hover{
      cursor: pointer;
-     background-color: rgb(196, 196, 255);
+     background-color: rgb(75, 230, 70);
      color: rgb(20, 0, 0);
      border-color: rgb(95, 12, 12);
      transition: all 0.4s ease 0s;
+}
+@media (max-width: 800px){
+     .imagesContainer{
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+     }
+     #finalImage{
+          width: 80%;
+          height: auto;
+     }
 }
