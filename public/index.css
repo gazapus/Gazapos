@@ -113,7 +113,7 @@ h1{
           grid-template-columns: 1fr 1fr 1fr 1fr;
      }
      #finalImage{
-          width: 80%;
+          width: 70%;
           height: auto;
      }
 }
